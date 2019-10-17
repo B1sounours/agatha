@@ -301,6 +301,7 @@ if __name__ == "__main__":
         batch_size=config.sys.batch_size,
         text_field="sent_text",
         max_sequence_length=config.parser.max_sequence_length,
+        sentence_embedding_method=config.parser.bert_sentence_method,
       )
   )
   ckpt("sentences_with_embedding")

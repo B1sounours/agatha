@@ -36,6 +36,11 @@ message TextParserConfig {
   // The BERT model will error out if given a too-long sequence.
   // Long sequences will be truncated.
   optional int32 max_sequence_length = 6 [default=500];
+  // Options:
+  // last_layer, mean_hidden, mean_hidden_without_specials
+  // Read embedding_util._bert_to_sentence_embeddings for more detauls
+  optional string bert_sentence_method = 7
+    [default="mean_hidden_without_specials"];
 }
 
 message NGramConfig {
@@ -82,7 +87,7 @@ message LdaConfig {
 }
 
 message MlConfig {
-  optional int32 batch_size = 1 [default=32];
+  optional int32 batch_size = 1 [default=16];
   optional bool disable_gpu = 2 [default=false];
   // only used for training
   optional int32 num_epochs = 3 [default=10];
